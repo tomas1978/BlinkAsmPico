@@ -10,18 +10,25 @@ int main() {
 #ifndef PICO_DEFAULT_LED_PIN
 #warning blink example requires a board with a regular LED
 #else
-	int sleepTime=100;
+	int sleepTime=10;
 	int sleepTimeOut;
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
     while (true) {
+		//Register R4 is connected to output
 		asm
 		(
-			"mov r0, #155"
+			"mov r4, #55\n"
+			"lsl r4, #2\n"
+			"lsl r4, #2\n"
+			"lsl r4, #2\n"
+			"lsl r4, #2\n"
+			
+
+			
 			: "=r" (sleepTimeOut)
 			: "r" (sleepTime)
-			: "r0"
 		);
         gpio_put(LED_PIN, 1);
         sleep_ms(sleepTimeOut);
