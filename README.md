@@ -1,2 +1,2 @@
 # BlinkAsmPico
-Simple program for Raspberry Pi Pico that blinks the LED using C with embedded ARM Assembler
+Simple programs for Raspberry Pi Pico that blinks the LEDs using Assembler and C functions
